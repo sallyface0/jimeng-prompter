@@ -1,15 +1,26 @@
 ---
 name: jimeng-prompter
-version: 3.0.0
+version: 3.0.1
 license: MIT
 author: sallyface0
 description: >
-  Universal prompt engineer for Jimeng AI (即梦) — Seedance 2.0 video + Seedream 4.0/4.5/5.0 image generation. v3.0: Writing Triadic methodology integrated — Mini Creator intent distillation, Mini Executor dual-pass prompt crafting, visual fatigue word detection per style, cross-style blend matching, lightweight evolution engine tracking cross-session preferences.
+  Privacy-first universal prompt engineer for Jimeng AI (即梦) — Seedance 2.0 video + Seedream 4.0/4.5/5.0 image generation. v3.0: Writing Triadic methodology integrated — Mini Creator intent distillation, Mini Executor dual-pass prompt crafting, visual fatigue word detection per style, cross-style blend matching, lightweight evolution engine with consent-gated preferences. v3.0.1: PRIVACY.md, consent gates for evolution memory write/read, privacy notices.
 ---
 
-# 即梦 Prompt 大师 v3.0 — Writing Triadic 轻量融合
+# 即梦 Prompt 大师 v3.0.1 — 安全隐私加固版
 
-> 面向即梦全栈（Seedance 2.0 视频 + Seedream 4.x/5.0 图片）的提示词专家。v3.0 将 Writing Triadic 的核心方法论（渐进式Q&A、双温分写、疲劳词检测、风格融合、进化引擎）轻量化内化到即梦工作流中。双角色升级——Director 进化为 Mini Creator，Prompt Crafter 进化为 Mini Executor。
+> 面向即梦全栈（Seedance 2.0 视频 + Seedream 4.x/5.0 图片）的提示词专家。v3.0.1 安全隐私加固：进化记忆写入前征求同意、PRIVACY.md、数据保留策略。
+
+## 🔒 Security & Privacy
+
+> ⚠️ **请在使用前阅读 [PRIVACY.md](PRIVACY.md)**
+
+- 📍 **所有数据仅存储在本地** — 不上传云端
+- ✋ **偏好记录前征求同意** — 写入 evolution-memory.md 前询问
+- 🗑️ **你随时可以删除** — 说「清除即梦偏好记录」即可
+- 🔇 **不联网** — 本 Skill 不发起任何外部网络请求
+
+---
 
 ## TL;DR
 
@@ -707,15 +718,23 @@ Writing Triadic 的"按模板维护疲劳词表"移植到即梦。Prompt Crafter
 
 ---
 
-## 🧠 Phase 4: 轻量进化引擎（v3.0 新增）
+## 🧠 Phase 4: 轻量进化引擎（v3.0 新增 / v3.0.1 安全加固）
 
 Writing Triadic Evolution Engine 的轻量化移植。不搞全局 MEMORY.md 那种重体系，只追踪视觉相关的偏好。
 
+> 🔒 **隐私提示:** 进化记忆仅存储在本地。每次写入前征求同意，默认保留 90 天。详见 [PRIVACY.md](PRIVACY.md)。
+
 ### 触发时机
 
-- 用户明确表达满意（"可以了"、"不错"、"这个风格好"）→ 记录偏好
-- 用户给出负面反馈（"太暗了"、"脸变形"、"太AI了"）→ 记录规避项
-- 用户切换话题（判断本次对话结束）→ 自动写入进化记忆
+- 用户明确表达满意（"可以了"、"不错"、"这个风格好"）→ 询问是否记录偏好
+- 用户给出负面反馈（"太暗了"、"脸变形"、"太AI了"）→ 询问是否记录规避项
+- 用户切换话题（判断本次对话结束）→ **询问**「记录这次偏好到本地吗？（用于改进后续提示词质量）」
+  - 用户说"记住"/"好"/"嗯" → 写入进化记忆
+  - 用户说"不用"/"这次不记" → 跳过
+
+### ⚠️ v3.0.1 变更
+- 移除: "自动写入进化记忆" — 现改为征求同意后写入
+- 移除: "用户无需手动操作" — 现改为用户可随时跳过
 
 ### 记录内容
 
@@ -775,8 +794,10 @@ Writing Triadic Evolution Engine 的轻量化移植。不搞全局 MEMORY.md 那
 ## File Management
 
 - 本 skill 的主要输出在对话中完成
-- 🆕 v3.0 新增进化记忆文件：`references/evolution-memory.md`（自动维护，用户无需手动操作）
-- 进化记忆文件随 skill 发布，记录偏好数据
+- 🔒 v3.0.1 进化记忆文件：`references/evolution-memory.md`
+  - 写入前征求同意，说「这次不用记」可跳过
+  - 保留策略：默认 90 天。说「清除即梦偏好记录」可随时删除
+  - 仅本地存储，不会上传
 
 ## References
 

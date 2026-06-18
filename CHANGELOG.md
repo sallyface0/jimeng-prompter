@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## v3.0.1 (2026-06-18)
+
+### 🔒 Security & Privacy Hardening
+- **New `PRIVACY.md`**: data collection, retention (90-day default), deletion controls.
+- **Consent gate for evolution memory**: Phase 4 now asks "记录这次偏好到本地吗？" before writing. Auto-write removed.
+- **Updated File Management**: removed "自动维护，用户无需手动操作" — replaced with consent-gated description.
+- **Privacy notice in Phase 4**: evolution engine now includes privacy notice with retention policy.
+- **Updated SKILL.md frontmatter**: v3.0.1, privacy-first description.
+
 ## v2.0.0 (2026-05-15)
 
 ### 🧭 Phase 0: 智能模型路由（全新）
